@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Material Design 3 System Colors */
+    --md-sys-color-primary: #1976D2;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #CCE7FF;
+    --md-sys-color-on-primary-container: #001D36;
+    
+    --md-sys-color-secondary: #535F70;
+    --md-sys-color-on-secondary: #FFFFFF;
+    --md-sys-color-secondary-container: #D6E3F7;
+    --md-sys-color-on-secondary-container: #101C2A;
+    
+    --md-sys-color-tertiary: #6B5B95;
+    --md-sys-color-on-tertiary: #FFFFFF;
+    --md-sys-color-tertiary-container: #E8DEF8;
+    --md-sys-color-on-tertiary-container: #251431;
+    
+    --md-sys-color-surface: #FEFBFF;
+    --md-sys-color-surface-variant: #DFE2EB;
+    --md-sys-color-on-surface: #1A1C1E;
+    --md-sys-color-on-surface-variant: #43474E;
+    
+    --md-sys-color-outline: #73777F;
+    --md-sys-color-outline-variant: #C3C7CF;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    
+    --md-sys-color-inverse-surface: #2F3033;
+    --md-sys-color-inverse-on-surface: #F1F0F4;
+    --md-sys-color-inverse-primary: #90CCFF;
+
+    /* Legacy support for existing classes */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 215 100% 42%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 215 100% 42%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --md-sys-color-primary: #90CCFF;
+    --md-sys-color-on-primary: #001D36;
+    --md-sys-color-primary-container: #004B70;
+    --md-sys-color-on-primary-container: #CCE7FF;
+    
+    --md-sys-color-secondary: #BAC8D8;
+    --md-sys-color-on-secondary: #253140;
+    --md-sys-color-secondary-container: #3B4858;
+    --md-sys-color-on-secondary-container: #D6E3F7;
+    
+    --md-sys-color-surface: #0F1419;
+    --md-sys-color-surface-variant: #43474E;
+    --md-sys-color-on-surface: #E2E2E9;
+    --md-sys-color-on-surface-variant: #C3C7CF;
+
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-roboto;
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Modern Animation Keyframes */
+  @keyframes fade-in {
+    from {
+      opacity: 0.7;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0.8;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      opacity: 0.7;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0.7;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out forwards;
+    opacity: 0.7;
+    transform: translateX(-30px);
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out forwards;
+    opacity: 0.7;
+    transform: translateX(-30px);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
+  /* Material Design 3 Utility Classes */
+  .bg-primary {
+    background-color: var(--md-sys-color-primary);
+  }
+  
+  .bg-primary-container {
+    background-color: var(--md-sys-color-primary-container);
+  }
+  
+  .bg-secondary-container {
+    background-color: var(--md-sys-color-secondary-container);
+  }
+  
+  .bg-surface {
+    background-color: var(--md-sys-color-surface);
+  }
+  
+  .bg-surface-variant {
+    background-color: var(--md-sys-color-surface-variant);
+  }
+  
+  .text-primary {
+    color: var(--md-sys-color-primary);
+  }
+  
+  .text-on-primary {
+    color: var(--md-sys-color-on-primary);
+  }
+  
+  .text-on-primary-container {
+    color: var(--md-sys-color-on-primary-container);
+  }
+  
+  .text-on-surface {
+    color: var(--md-sys-color-on-surface);
+  }
+  
+  .text-on-surface-variant {
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  .text-secondary {
+    color: var(--md-sys-color-secondary);
+  }
+
+  .text-tertiary {
+    color: var(--md-sys-color-tertiary);
+  }
+
+  .bg-secondary {
+    background-color: var(--md-sys-color-secondary);
+  }
+
+  .bg-tertiary {
+    background-color: var(--md-sys-color-tertiary);
+  }
+
+  /* Material Web Components styling */
+  md-filled-button {
+    --md-filled-button-container-color: var(--md-sys-color-primary);
+    --md-filled-button-label-text-color: var(--md-sys-color-on-primary);
+    transition: all 0.3s ease;
+  }
+  
+  md-outlined-button {
+    --md-outlined-button-outline-color: var(--md-sys-color-primary);
+    --md-outlined-button-label-text-color: var(--md-sys-color-primary);
+    transition: all 0.3s ease;
+  }
+  
+  md-text-button {
+    --md-text-button-label-text-color: var(--md-sys-color-primary);
+    transition: all 0.3s ease;
+  }
+  
+  md-elevated-card {
+    --md-elevated-card-container-color: var(--md-sys-color-surface);
+    --md-elevated-card-container-elevation: 1;
+    transition: all 0.3s ease;
+  }
+  
+  md-assist-chip {
+    --md-assist-chip-container-color: var(--md-sys-color-surface-variant);
+    --md-assist-chip-label-text-color: var(--md-sys-color-on-surface-variant);
+    transition: all 0.3s ease;
+  }
+
+  md-fab {
+    --md-fab-container-color: var(--md-sys-color-primary);
+    --md-fab-icon-color: var(--md-sys-color-on-primary);
+    transition: all 0.3s ease;
+  }
+
+  md-icon-button {
+    transition: all 0.3s ease;
+  }
+
+  md-outlined-text-field {
+    transition: all 0.3s ease;
+  }
+
+  /* Parallax and scroll effects */
+  .parallax {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
